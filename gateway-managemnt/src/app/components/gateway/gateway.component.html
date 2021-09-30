@@ -1,0 +1,59 @@
+<div class="container mt-5 shadow-sm pb-3">
+
+    <h5>Gateway {{gateWayid}}</h5>
+    <h6>Devices</h6>
+    <form #form="ngForm" class="row row-cols-lg-auto g-3 align-items-center">
+       
+        <div class="col-12">
+            <label class="visually-hidden" for="vendor">vendor</label>
+            <div class="input-group">
+                <input type="text" name="vendor" ngModel class="form-control" id="vendor" placeholder="vendor">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="visually-hidden" for="date">date</label>
+            <div class="input-group">
+                <input type="date" ngModel  name="date" class="form-control" id="date" placeholder="date">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="visually-hidden" for="status">status</label>
+            <select class="form-select"  ngModel name="status" id="status">
+              <option value="online">online</option>
+              <option value="offline">offline</option>
+            </select>
+          </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" (click)="addDeviceToGateway(form.value)">add device</button>
+        </div>
+    </form>
+</div>
+
+<div class="container mt-5 shadow-sm pb-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">uuid</th>
+                <th scope="col">vendor</th>
+                <th scope="col">date</th>
+                <th> status</th>
+                <!-- <th scope="col">remove</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let device of devices">
+                <td>{{ device.uid }}</td>
+                <td>{{ device.vendor }}</td>
+                <td>{{ device.date }}</td>
+                <td>
+                    {{device.status}}
+                </td>
+                <!-- <td>
+                    <button class="btn btn-danger">remove</button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
