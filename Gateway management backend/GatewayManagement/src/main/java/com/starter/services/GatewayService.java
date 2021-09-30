@@ -28,6 +28,8 @@ public class GatewayService {
 	
 	public GatewayDevice addGatewayDevice(GatewayDevice gatewayDevice){
 		
+
+		
 		if(gatewayRepo.findBySerialNumber(gatewayDevice.getSerialNumber())== null)
 			gatewayRepo.save(gatewayDevice);
 		else

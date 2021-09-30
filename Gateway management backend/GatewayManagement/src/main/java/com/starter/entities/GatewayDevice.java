@@ -35,9 +35,9 @@ public class GatewayDevice {
 	@Column(name = "human_readable_name")
 	private String humanName;
 	
-	@Pattern(regexp = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$")	
+	@Pattern(regexp = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$" , message="pattern not correct")	
 	@Column(name="IPv4_address")
-	private String IPv4Address;
+	private String ipv4;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "gateway",
 			cascade= CascadeType.ALL)
@@ -69,13 +69,12 @@ public class GatewayDevice {
 	public void setHumanName(String humanName) {
 		this.humanName = humanName;
 	}
-	public String getIPv4Address() {
-		return IPv4Address;
+	public String getIpv4() {
+		return ipv4;
 	}
-	public void setIPv4Address(String iPv4Address) {
-		IPv4Address = iPv4Address;
+	public void setIpv4(String ipv4) {
+		this.ipv4 = ipv4;
 	}
-
 	
 	
 	
